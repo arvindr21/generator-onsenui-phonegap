@@ -2,7 +2,7 @@
 
 > [Yeoman](http://yeoman.io) generator
 
-## Work in Progress
+## ~~ Work in Progress ~~
 
 ## Getting Started
 
