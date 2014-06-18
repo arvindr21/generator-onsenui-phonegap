@@ -58,7 +58,7 @@ This will start a server at port `1881`. Navigate to `http://localhost:1881` to 
 
 _Note: When you open the browser, you will find `cordova.js` as a 404 resource. This will be resolved, when you issue a PhoneGap build._
 
-## Running on a emulator
+## Running on an emulator
 
 I have written a few blog posts and how to setup PhoneGap/Cordova, integrate with Onsenui, issue a phonegap build and create a Native Installer. You can start link diving from : [Onsen UI and PhoneGap – Getting Started](http://thejackalofjavascript.com/onsen-ui-and-phonegap-getting-started/)
 
