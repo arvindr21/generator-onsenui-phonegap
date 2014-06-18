@@ -1,8 +1,7 @@
 # generator-onsenui-phonegap [![Build Status](https://secure.travis-ci.org/arvindr21/generator-onsenui-phonegap.png?branch=master)](https://travis-ci.org/arvindr21/generator-onsenui-phonegap)
 
-> [Yeoman](http://yeoman.io) generator
+> A Yeoman Generator to Scaffold an [OnsenUI](http://onsenui.io/) [PhongeGap](http://phonegap.com) app
 
-## ~~ Work in Progress ~~
 
 ## Getting Started
 
@@ -35,6 +34,33 @@ Finally, initiate the generator:
 ```bash
 $ yo onsenui-phonegap
 ```
+You can pick from one of the 7 available [templates](http://onsenui.io/guide/getting_started.html#template)
+
+* Minimum
+* Sliding Menu
+* Sliding Menu & Navigator
+* Tab bar
+* Master-Detail
+* Split View
+* Split View & Navigator
+
+Once you select a template, Yeoman will scaffold an `onsenui-phonegap` app.
+
+### Run the app
+
+To run the Onsenui Phonegap app, execute
+
+```bash
+$ grunt
+```
+
+This will start a server at port `1881`. Navigate to `http://localhost:1881` to see the app running.
+
+_Note: When you open the browser, you will find `cordova.js` as a 404 resource. This will be resolved, when you issue a PhoneGap build._
+
+## Running on a emulator
+
+I have written a few blog posts and how to setup PhoneGap/Cordova, integrate with Onsenui, issue a phonegap build and create a Native Installer. You can start link diving from : [Onsen UI and PhoneGap – Getting Started](http://thejackalofjavascript.com/onsen-ui-and-phonegap-getting-started/)
 
 ### Getting To Know Yeoman
 
