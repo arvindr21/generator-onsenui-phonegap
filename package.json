@@ -20,7 +20,10 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "onsenui",
+    "phonegap",
+    "cordova"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
