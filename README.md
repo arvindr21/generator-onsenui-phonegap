@@ -44,11 +44,11 @@ You can pick from one of the 7 available [templates](http://onsenui.io/guide/get
 * Split View
 * Split View & Navigator
 
-Once you select a template, Yeoman will scaffold an `onsenui-phonegap` app.
+Once you select a template, Yeoman will scaffold an `onsenui-phonegap` app for you.
 
-### Run the app
+### Run the App
 
-To run the Onsenui Phonegap app, execute
+To run the Onsenui Phonegap app in your browser, execute
 
 ```bash
 $ grunt
@@ -58,9 +58,9 @@ This will start a server at port `1881`. Navigate to `http://localhost:1881` to 
 
 _Note: When you open the browser, you will find `cordova.js` as a 404 resource. This will be resolved, when you issue a PhoneGap build._
 
-## Running on an emulator
+## Run on an Emulator
 
-I have written a few blog posts and how to setup PhoneGap/Cordova, integrate with Onsenui, issue a phonegap build and create a Native Installer. You can start link diving from : [Onsen UI and PhoneGap – Getting Started](http://thejackalofjavascript.com/onsen-ui-and-phonegap-getting-started/)
+I have written a few blog posts on how to setup PhoneGap/Cordova, integrate with Onsenui and issue a Phonegap Build to create a native installer. You can start link diving from : [Onsen UI and PhoneGap – Getting Started](http://thejackalofjavascript.com/onsen-ui-and-phonegap-getting-started/)
 
 ### Getting To Know Yeoman
 
