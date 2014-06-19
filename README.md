@@ -62,6 +62,11 @@ _Note: When you open the browser, you will find `cordova.js` as a 404 resource. 
 
 I have written a few blog posts on how to setup PhoneGap/Cordova, integrate with Onsenui and issue a Phonegap Build to create a native installer. You can start link diving from : [Onsen UI and PhoneGap – Getting Started](http://thejackalofjavascript.com/onsen-ui-and-phonegap-getting-started/)
 
+### TODO
+* [ ] Grunt task - lint js/css
+* [ ] Grunt task - push the code to Github 
+* [ ] Grunt task - build generation
+
 ### Getting To Know Yeoman
 
 Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
