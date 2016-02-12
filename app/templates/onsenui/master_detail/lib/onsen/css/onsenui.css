@@ -1,7 +1,6 @@
-/*! onsenui - v1.0.4 - 2014-04-04 */
-
+/*! onsenui - v1.3.14 - 2015-11-24 */
 /*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
+Copyright 2013-2015 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,101 +14,116 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*/
+ */
 
 @import url("font_awesome/css/font-awesome.min.css");
+@import url("ionicons/css/ionicons.min.css");
 
-[ng-cloak],
-[x-ng-cloak],
-.ng-cloak,
-[data-ng-cloak] {
-  display: none !important;
-}
-
-html {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  margin: 0;
-  padding: 0;
-}
-
-.align-center {
-  align: center;
-}
-
-.middle {
-  vertical-align: middle;
-}
-
-.no-active:active {
-  background-color: transparent !important;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.relative {
-  position: relative;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.full-height {
-  height: 100%;
-}
-
-.max {
-  width: 100%;
-  height: 100%;
-}
-
-.block {
+/* cutsom elements */
+ons-page, ons-navigator,
+ons-split-view, ons-sliding-menu, ons-tabbar,
+ons-gesture-detector {
   display: block;
+}
+
+ons-navigator,
+ons-tabbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+ons-page, ons-navigator, ons-tabbar, ons-sliding-menu, ons-split-view {
+  z-index: 2;
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
-input {
-  -webkit-user-select: initial;
-  -moz-user-select: initial;
-  -ms-user-select: initial;
-  user-select: initial;
+::-webkit-scrollbar {
+  display: none;
 }
 
-textarea {
-  -webkit-user-select: initial;
-  -moz-user-select: initial;
-  -ms-user-select: initial;
-  user-select: initial;
+input, textarea {
+  -webkit-user-select: auto;
 }
 
-select {
-  -webkit-user-select: initial;
-  -moz-user-select: initial;
-  -ms-user-select: initial;
-  user-select: initial;
+.page,
+.page__content {
+  background-color: transparent !important;
+  background: transparent !important;
 }
+
+.page__status-bar-fill + .page__background + .page__content {
+  padding-top: 20px;
+}
+
+ons-toolbar + .page__background + .page__content {
+  top: 44px;
+}
+
+.page__status-bar-fill + ons-toolbar {
+  height: 64px;
+}
+
+.page__status-bar-fill + ons-toolbar > .center,
+.page__status-bar-fill + ons-toolbar > .left,
+.page__status-bar-fill + ons-toolbar > .right {
+  padding-top: 20px;
+}
+
+.page__status-bar-fill + ons-toolbar + .page__background + .page__content {
+  top: 64px;
+  padding-top: 0px;
+}
+
+.page__content {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  -ms-touch-action: pan-y;
+}
+
+.page__bottom-bar-fill ~ .page__content {
+  bottom: 44px;
+}
+
+.page__content::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-bar__status-bar-fill ~ .tab-bar--top__content {
+  top: 71px;
+}
+
+.tab-bar__status-bar-fill ~ .tab-bar--top {
+  padding-top: 22px;
+}
+
+ons-dialog[disabled] > .dialog,
+ons-alert-dialog[disabled],
+ons-popover[disabled] {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+ons-pull-hook {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
 
 /*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
+Copyright 2013-2015 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -123,395 +137,41 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*/
+ */
 
-/* MODAL */
-
-ons-screen {
+ons-carousel {
   display: block;
-  width: 100%;
-  height: 100%;
-  -webkit-perspective: 10px;
-  -moz-perspective: 10px;
-  -ms-perspective: 10px;
-  -o-perspective: 10px;
-  perspective: 10px;
-  position: relative;
-  overflow: hidden;
-}
-
-.screen-page {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.screen-page__container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.onsen_screen-black-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: black;
-}
-
-.onsen_screen-black-mask.hide {
-  opacity: 0;
-}
-
-.screen-page.screen-center {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, 0.1);
-}
-
-.screen-page.unmodal {
-  -webkit-transform: translate3d(0, 100%, 0) !important;
-  -moz-transform: translate3d(0, 100%, 0) !important;
-  -ms-transform: translate3d(0, 100%, 0) !important;
-  -o-transform: translate3d(0, 100%, 0) !important;
-  transform: translate3d(0, 100%, 0) !important;
-  -webkit-box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, 0.2);
-}
-
-.screen-page.transition > .screen-page__container {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.screen-page.unmodal > .screen-page__container {
-  opacity: 1;
-}
-
-.screen-page.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.screen-page.modal-behind {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: translate3d(0, -10%, 0);
-  -moz-transform: translate3d(0, -10%, 0);
-  -ms-transform: translate3d(0, -10%, 0);
-  -o-transform: translate3d(0, -10%, 0);
-  transform: translate3d(0, -10%, 0);
-}
-
-.screen-page.modal-behind > .screen-page__container {
-  opacity: 0.9;
-}
-
-/*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-*/
-
-.navigator-toolbar__content {
-  width: 100%;
-  height: 100%;
-}
-
-.onsen_navigator-pager {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.onsen_navigator-black-mask {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: black;
-}
-
-.onsen_navigator-pager.navigate_left {
-  -webkit-transform: translate3d(-25%, 0, 0);
-  -moz-transform: translate3d(-25%, 0, 0);
-  -ms-transform: translate3d(-25%, 0, 0);
-  -o-transform: translate3d(-25%, 0, 0);
-  transform: translate3d(-25%, 0, 0);
-  /*box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);*/
-}
-
-.onsen_navigator-pager.navigate_left .navigator-page {
-  opacity: 0.9;
-}
-
-.onsen_navigator-pager.navigator_center {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  /*box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.02);*/
-}
-
-.onsen_navigator-pager.navigator_center .navigator-page {
-  opacity: 1;
-}
-
-.onsen_navigator-pager.navigate_right {
-  -webkit-transform: translate3d(100%, 0, 0);
-  -moz-transform: translate3d(100%, 0, 0);
-  -ms-transform: translate3d(100%, 0, 0);
-  -o-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-  /*box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);*/
-}
-
-.onsen_navigator-pager.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.onsen_navigator-pager .navigator-page {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.onsen_navigator-title {
-  width: 44%;
-  left: 28%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.onsen_navigator-title.animate-right {
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.onsen_navigator-title.animate-center {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.onsen_navigator-title.animate-left {
-  -webkit-transform: translateX(-36%);
-  -moz-transform: translateX(-36%);
-  -ms-transform: translateX(-36%);
-  -o-transform: translateX(-36%);
-  transform: translateX(-36%);
-  opacity: 0;
-}
-
-.onsen_navigator-item {
-  position: absolute !important;
-  top: 0;
-  bottom: 1px;
-}
-
-/* TODO: */
-
-.onsen_navigator-title.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.onsen_navigator__left-button-container.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.99,.01,.99,.01);
-  -moz-animation-timing-function: cubic-bezier(.99,.01,.99,.01);
-  -o-animation-timing-function: cubic-bezier(.99,.01,.99,.01);
-  animation-timing-function: cubic-bezier(.99,.01,.99,.01);
-}
-
-.onsen_navigator__left-button-container.hide {
-  opacity: 0;
-}
-
-.onsen_navigator__left-button-container.show {
-  opacity: 1;
-}
-
-.onsen_navigator__left-button-container {
-  left: 0;
-  width: 20px;
-  text-align: right;
-}
-
-.onsen_fade {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.onsen_fade.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-}
-
-.onsen_fade.show {
-  opacity: 1;
-}
-
-.onsen_fade.hide {
-  opacity: 0;
-}
-
-.onsen_navigator__right-button {
-  position: absolute;
-  padding-right: 10px;
-  right: 0;
-  width: 13%;
-  bottom: 0;
-}
-
-.right-section-icon {
   position: relative;
   width: 100%;
-}
-
-.onsen_navigator-back-label {
-  width: 25%;
-  left: 0;
-  text-align: left !important;
-  margin-left: 25px !important;
-  padding-left: 0 !important;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
-  text-decoration: none;
 }
 
-.onsen_navigator-back-label.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  transition-property: -ms-transform, opacity;
-  transition-property: transform, opacity;
+ons-carousel-item {
+  display: block;
+  height: 100%;
+  visibility: hidden;
 }
 
-.onsen_navigator-back-label.navigate_right {
-  -webkit-transform: translateX(120%);
-  -moz-transform: translateX(120%);
-  -ms-transform: translateX(120%);
-  -o-transform: translateX(120%);
-  transform: translateX(120%);
-  opacity: 0;
+ons-carousel-cover {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.onsen_navigator-back-label.navigator_center {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
+ons-carousel[fullscreen] {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
 }
 
-.onsen_navigator-back-label.navigate_left {
-  -webkit-transform: translateX(-60%);
-  -moz-transform: translateX(-60%);
-  -ms-transform: translateX(-60%);
-  -o-transform: translateX(-60%);
-  transform: translateX(-60%);
-  opacity: 0;
+ons-carousel[disabled] {
+  pointer-events: none;
+  opacity: 0.75;
 }
 
 .effeckt-button {
@@ -528,17 +188,20 @@ limitations under the License.
 
 .effeckt-button > .spinner {
   position: absolute;
-  width: 20px;
-  height: 10px;
+  width: 26px;
+  height: 13px;
   top: 50%;
-  margin-top: -13px;
+  margin-top: -12px;
   opacity: 0;
-  /*border: 3px solid #fff; specified in topcoat theme. .topcoat-button__spinner*/
+  border: 3px solid white;
   border-bottom: 0;
   -webkit-border-radius: 40px 40px 0 0;
   border-radius: 40px 40px 0 0;
   -webkit-transform-origin: bottom center;
   background: transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .effeckt-button[data-loading] > .spinner {
@@ -582,7 +245,7 @@ limitations under the License.
   }
 }
 
-@keyframes spinner {
+@-moz-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -608,7 +271,7 @@ limitations under the License.
   }
 }
 
-@-moz-keyframes spinner {
+@keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -648,7 +311,7 @@ limitations under the License.
   -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);  
 }
 
 .effeckt-button.zoom-in,
@@ -903,7 +566,6 @@ limitations under the License.
  * available width, and the height of each .col with take
  * up the height of the tallest .col in the same .row.
  */
-
 .row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -915,10 +577,12 @@ limitations under the License.
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .row + .row {
-  margin-top: -5px;
   padding-top: 0;
 }
 
@@ -931,14 +595,16 @@ limitations under the License.
   flex: 1;
   display: block;
   width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Vertically Align Columns */
-
 /* .row-* vertically aligns every .col in the .row */
-
 .row-top {
   -webkit-box-align: start;
+  box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
@@ -948,6 +614,7 @@ limitations under the License.
 
 .row-bottom {
   -webkit-box-align: end;
+  box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
@@ -957,175 +624,62 @@ limitations under the License.
 
 .row-center {
   -webkit-box-align: center;
+  box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   -moz-box-align: center;
   align-items: center;
+  text-align: inherit;
 }
 
 /* .col-* vertically aligns an individual .col */
-
 .col-top {
   -webkit-align-self: flex-start;
   -moz-align-self: flex-start;
   -ms-flex-item-align: start;
-  align-self: flex-start;
-}
+  align-self: flex-start; }
 
 .col-bottom {
   -webkit-align-self: flex-end;
   -moz-align-self: flex-end;
   -ms-flex-item-align: end;
-  align-self: flex-end;
-}
+  align-self: flex-end; }
 
 .col-center {
   -webkit-align-self: center;
   -moz-align-self: center;
   -ms-flex-item-align: center;
-  align-self: center;
+  text-align: inherit;
 }
 
 /* Column Offsets */
-
 .col-offset-10 {
-  margin-left: 10%;
-}
+  margin-left: 10%; }
 
 .col-offset-20 {
-  margin-left: 20%;
-}
+  margin-left: 20%; }
 
 .col-offset-25 {
-  margin-left: 25%;
-}
+  margin-left: 25%; }
 
-.col-offset-33,
-.col-offset-34 {
-  margin-left: 33.3333%;
-}
+.col-offset-33, .col-offset-34 {
+  margin-left: 33.3333%; }
 
 .col-offset-50 {
-  margin-left: 50%;
-}
+  margin-left: 50%; }
 
-.col-offset-66,
-.col-offset-67 {
-  margin-left: 66.6666%;
-}
+.col-offset-66, .col-offset-67 {
+  margin-left: 66.6666%; }
 
 .col-offset-75 {
-  margin-left: 75%;
-}
+  margin-left: 75%; }
 
 .col-offset-80 {
-  margin-left: 80%;
-}
+  margin-left: 80%; }
 
 .col-offset-90 {
-  margin-left: 90%;
-}
-
-/* Explicit Column Percent Sizes */
-
-/* By default each grid column will evenly distribute */
-
-/* across the grid. However, you can specify individual */
-
-/* columns to take up a certain size of the available area */
-
-.col-10 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 10%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 10%;
-  -ms-flex: 0 0 10%;
-  flex: 0 0 10%;
-  max-width: 10%;
-}
-
-.col-20 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 20%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 20%;
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
-  max-width: 20%;
-}
-
-.col-25 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 25%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 25%;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-
-.col-33,
-.col-34 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 33.3333%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 33.3333%;
-  -ms-flex: 0 0 33.3333%;
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-}
-
-.col-50 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 50%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-
-.col-66,
-.col-67 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 66.6666%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 66.6666%;
-  -ms-flex: 0 0 66.6666%;
-  flex: 0 0 66.6666%;
-  max-width: 66.6666%;
-}
-
-.col-75 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 75%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 75%;
-  -ms-flex: 0 0 75%;
-  flex: 0 0 75%;
-  max-width: 75%;
-}
-
-.col-80 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 80%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 80%;
-  -ms-flex: 0 0 80%;
-  flex: 0 0 80%;
-  max-width: 80%;
-}
-
-.col-90 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 90%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 90%;
-  -ms-flex: 0 0 90%;
-  flex: 0 0 90%;
-  max-width: 90%;
-}
+  margin-left: 90%; }
 
 .row--fit > .col {
   -webkit-box-flex: 1;
@@ -1134,7 +688,6 @@ limitations under the License.
   -ms-flex: 1;
   flex: 1;
 }
-
 .row--100 > .col {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
@@ -1144,7 +697,160 @@ limitations under the License.
 }
 
 /*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
+Copyright 2013-2015 ASIAL CORPORATION
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+ */
+
+.ons-icon {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ons-icon--ion {
+  line-height: 0.75em;
+  vertical-align: -25%;
+}
+
+ons-icon[spin="true"] {
+  -webkit-animation: ons-icon-spin 2s infinite linear;
+  -moz-animation: ons-icon-spin 2s infinite linear;
+  -o-animation: ons-icon-spin 2s infinite linear;
+  animation: ons-icon-spin 2s infinite linear;
+}
+
+@-moz-keyframes ons-icon-spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes ons-icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes ons-icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes ons-icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.ons-icon[rotate="90"] {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ons-icon[rotate="180"] {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.ons-icon[rotate="270"] {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+ons-icon[flip="horizontal"] {
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+ons-icon[flip="vertical"] {
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+ons-icon[fixed-width="true"] {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.ons-icon--lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.ons-icon--2x {
+  font-size: 2em;
+}
+
+.ons-icon--3x {
+  font-size: 3em;
+}
+
+.ons-icon--4x {
+  font-size: 4em;
+}
+
+.ons-icon--5x {
+  font-size: 5em;
+}
+
+/*
+Copyright 2013-2015 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1160,131 +866,25 @@ limitations under the License.
 
 */
 
-ons-navigator-toolbar {
-  display: none;
-}
-
-ons-navigator {
-  width: 100%;
-  height: 100%;
+ons-scroller {
   display: block;
-}
-
-.navigator-container {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -moz-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
-  align-content: flex-start;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -moz-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  width: 100%;
   height: 100%;
-  overflow: hidden;
-}
-
-.navigator-toolbar {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.navigator-content {
-  -webkit-box-ordinal-group: 1;
-  -moz-box-ordinal-group: 1;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto;
-  overflow: hidden;
-}
-
-.topcoat-navigation-bar {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.right-section-icon {
-  height: 100%;
-  display: block !important;
-}
-
-.left-section {
-  height: 100%;
-}
-
-.page {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-}
-
-.onsen_bottom-toolbar {
-  position: absolute;
-  bottom: 0;
-  height: 2.5rem;
-  width: 100%;
-}
-
-/*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-*/
-
-.scroller-wrapper {
-  overflow-y: scroll;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
 }
 
-::-webkit-scrollbar {
+ons-scroller::-webkit-scrollbar {
   display: none;
 }
 
-.scroller {
-  min-height: 100%;
+.ons-scroller__content {
+  height: 100%;
+  overflow: scroll;
 }
 
 /*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
+Copyright 2013-2015 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1300,84 +900,35 @@ limitations under the License.
 
 */
 
-.onsen_sliding-menu-black-mask {
+ons-sliding-menu {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  background-color: black;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 0;
+  overflow-x: hidden;
 }
 
-.sliding-menu {
-  overflow: hidden;
-}
-
-.transition {
-  -webkit-transition-duration: 400ms;
-  -moz-transition-duration: 400ms;
-  -o-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -moz-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  -o-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-  animation-timing-function: cubic-bezier(.1, .7, .1, 1);
-}
-
-.open {
-  -webkit-transform: translate3d(92%, 0, 0);
-  -moz-transform: translate3d(92%, 0, 0);
-  -ms-transform: translate3d(92%, 0, 0);
-  -o-transform: translate3d(92%, 0, 0);
-  transform: translate3d(92%, 0, 0);
-}
-
-.close {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.menu {
-  z-index: -1;
-  background-color: gray;
-}
-
-.behind {
-  opacity: 0;
-  /* initially hidden */
-  -webkit-transform: translate3d(-10%, 0, 0);
-  -moz-transform: translate3d(-10%, 0, 0);
-  -ms-transform: translate3d(-10%, 0, 0);
-  -o-transform: translate3d(-10%, 0, 0);
-  transform: translate3d(-10%, 0, 0);
-  width: 100% !important;
-}
-
-.above {
-  -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.full-screen {
+.onsen-sliding-menu__menu,
+.onsen-sliding-menu__main {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  /*height: 100%;*/
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
 }
+
+.onsen-sliding-menu__menu {
+  opacity: 0;
+}
+
 
 /*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
+Copyright 2013-2015 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1393,64 +944,28 @@ limitations under the License.
 
 */
 
-.secondary {
+ons-split-view {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.onsen-split-view__secondary {
   opacity: 0;
   width: 100%;
-  -webkit-transform: translate3d(-10%, 0, 0);
-  -moz-transform: translate3d(-10%, 0, 0);
-  -ms-transform: translate3d(-10%, 0, 0);
-  -o-transform: translate3d(-10%, 0, 0);
-  transform: translate3d(-10%, 0, 0);
-  overflow: hidden;
 }
 
-.main {
-  overflow: hidden;
-}
-
-.onsen_split-view__shadow {
-  -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
-}
-
-/*
-Copyright 2013 ASIAL CORPORATION, KRUY VANNA, HIROSHI SHIKATA
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-*/
-
-.onsen_tab-bar__label {
-  line-height: 1rem;
-  margin-top: -16px;
-  font-size: small;
-}
-
-.onsen_tab-bar__label.big {
-  margin-top: 0;
-  font-size: large;
-}
-
-.footer {
+.onsen-split-view__secondary,
+.onsen-split-view__main {
   position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.tab-bar-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 0;
+  overflow-x: hidden; 
 }

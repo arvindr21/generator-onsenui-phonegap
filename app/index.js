@@ -39,9 +39,6 @@ var OnsenuiPhonegapGenerator = yeoman.generators.Base.extend({
                 name: 'Sliding Menu',
                 value: 'smenu'
             }, {
-                name: 'Sliding Menu & Navigator',
-                value: 'menunav'
-            }, {
                 name: 'Tab bar',
                 value: 'tab'
             }, {
@@ -50,9 +47,6 @@ var OnsenuiPhonegapGenerator = yeoman.generators.Base.extend({
             }, {
                 name: 'Split View',
                 value: 'sview'
-            }, {
-                name: 'Split View & Navigator',
-                value: 'sviewnav'
             }],
             default: 'minimum'
         }];
