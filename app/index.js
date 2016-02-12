@@ -72,6 +72,7 @@ var OnsenuiPhonegapGenerator = yeoman.generators.Base.extend({
 
         this.copy('_package.json', 'package.json');
         this.copy('_bower.json', 'bower.json');
+        this.copy('_.bowerrc', '.bowerrc');
 
         if (this.templateName === 'minimum') {
             this.directory('onsenui/minimum/', 'www/');
